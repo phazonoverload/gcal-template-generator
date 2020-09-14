@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#app {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1em 3em;
+}
+
+h1 {
+    margin: 1em 0;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+}
+
+.date .input-group {
+    flex: 1;
+}
+
+.input-group {
+    margin-bottom: 1em;
+    padding: 0.25em;
+}
+
+label {
+    display: block;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+input[type=date] {
+    padding: 7.5px;
+}
+
+.all-day * {
+    display: inline-block;
+    width: auto;
+}
+
+.output {
+    display: flex;
+}
+
+.output button {
+    min-width: 100px;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+    .date {
+        display: block;
+    }
+}

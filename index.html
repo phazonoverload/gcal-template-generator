@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Calendar Template Generator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app" class="w-full max-w-xs mx-auto">
+      <h1>Google Calendar Template Link Generator</h1>
+      <form>
+        <div class="input-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" v-model="title" />
+        </div>
+        <div class="date">
+          <div class="input-group">
+            <label for="start_date">Start Date</label>
+            <input type="date" id="start_date" v-model="dates.start.date" />
+          </div>
+          <div class="input-group" v-if="!dates.allDay">
+            <label for="start_time">Start Time</label>
+            <input type="text" id="start_time" v-model="dates.start.time" placeholder="hh:mm" />
+          </div>
+        </div>
+        <div class="date">
+          <div class="input-group">
+            <label for="end_date">End Date</label>
+            <input type="date" id="end_date" v-model="dates.end.date" />
+          </div>
+          <div class="input-group" v-if="!dates.allDay">
+            <label for="end_time">End Time</label>
+            <input type="text" id="end_time" v-model="dates.end.time" placeholder="hh:mm" />
+          </div>
+        </div>
+        <div class="input-group all-day">
+          <label for="allday">All Day?</label>
+          <input type="checkbox" v-model="dates.allDay">
+        </div>
+        <div class="input-group">
+          <label for="tz">Timezone</label>
+          <select id="tz" v-model="timezones.chosen">
+            <option v-for="tz in timezones.list">{{tz}}</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" v-model="location" />
+        </div>
+        <div class="input-group">
+          <label for="notes">Notes</label>
+          <textarea type="text" rows="5" id="notes" v-model="notes"></textarea>
+        </div>
+      </form>
+      <div class="output">
+        <input type="text" disabled :value="output" id="output">
+        <!-- <button @click="copyOutput">Copy</button> -->
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
