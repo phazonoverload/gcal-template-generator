@@ -26,13 +26,19 @@ const app = new Vue({
     }
   },
   methods: {
-    // copyOutput() {
-    //   console.log('copying output')
-    //   const copyText = document.getElementById("output")
-    //   console.log(copyText)
-    //   copyText.select();
-    //   document.execCommand("copy");
-    // }
+    copyOutput() {
+      navigator.permissions.query({name: "clipboard-write"}).then(result => {
+        if (result.state == "granted" || result.state == "prompt") {
+          navigator.clipboard.writeText(this.output).then(() => {
+            alert('Link copied to clipboard.')
+          }, () => {
+            alert('Something went wrong while copying the link to your clipboard.')
+          });
+        } else {
+          alert('Your browser does not allow for us to write to your clipboard.')
+        }
+      });
+    }
   },
   computed: {
     output() {

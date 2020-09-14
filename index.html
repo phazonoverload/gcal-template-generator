@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Calendar Template Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div id="app" class="w-full max-w-xs mx-auto">
@@ -39,23 +40,23 @@
           <input type="checkbox" v-model="dates.allDay">
         </div>
         <div class="input-group">
-          <label for="tz">Timezone</label>
+          <label for="tz">Timezone (optional)</label>
           <select id="tz" v-model="timezones.chosen">
             <option v-for="tz in timezones.list">{{tz}}</option>
           </select>
         </div>
         <div class="input-group">
-          <label for="location">Location</label>
+          <label for="location">Location (optional)</label>
           <input type="text" id="location" v-model="location" />
         </div>
         <div class="input-group">
-          <label for="notes">Notes</label>
+          <label for="notes">Notes (optional)</label>
           <textarea type="text" rows="5" id="notes" v-model="notes"></textarea>
         </div>
       </form>
       <div class="output">
         <input type="text" disabled :value="output" id="output">
-        <!-- <button @click="copyOutput">Copy</button> -->
+        <button @click="copyOutput">Copy</button>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
