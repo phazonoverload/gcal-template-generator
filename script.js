@@ -55,7 +55,7 @@ const app = new Vue({
       }
       if(this.location) url += `&location=${this.location}`
       if(this.notes) url += `&details=${this.notes}`
-      return url
+      return url.split(" ").join("+")
     },
     startDate() {
       return this.dates.start.date.split('-').join('')
