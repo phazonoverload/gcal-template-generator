@@ -1,7 +1,7 @@
 const app = new Vue({
   el: '#app',
   async created() {
-    this.timezones.list = await fetch('http://worldtimeapi.org/api/timezone').then(r => r.json())
+    this.timezones.list = await fetch('https://worldtimeapi.org/api/timezone').then(r => r.json())
     this.dates.start.date = this.today
     this.dates.end.date = this.today
   },
